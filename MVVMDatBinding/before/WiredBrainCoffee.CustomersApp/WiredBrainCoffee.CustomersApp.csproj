@@ -19,8 +19,4 @@
     <Resource Include="Images\move.png" />
   </ItemGroup>
 
-  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
-    <Exec Command="- task: UseDotNet@2&#xD;&#xA;  displayName: 'Use .NET Core sdk'&#xD;&#xA;  inputs:&#xD;&#xA;    packageType: 'sdk'&#xD;&#xA;    version: '6.0.x'&#xD;&#xA;    includePreviewVersions: true" />
-  </Target>
-
 </Project>
