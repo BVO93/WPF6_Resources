@@ -21,7 +21,8 @@ namespace WiredBrainCoffee.CustomersApp.ViewModel
         // Observes when the collection is changed and gets update
         public ObservableCollection<Customer> Customers { get; } = new();
 
-
+        // ? can be null
+        public Customer? SelectedCustomer { get; set; }
         public async Task LoadAsync()
         {
             // Check if there is already anyting in customers.
