@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using WiredBrainCoffee.CustomersApp.Data;
@@ -9,10 +11,12 @@ using WiredBrainCoffee.CustomersApp.Model;
 
 namespace WiredBrainCoffee.CustomersApp.ViewModel
 {
-    public class CustomersViewModel
+    public class CustomersViewModel : INotifyPropertyChanged
     {
         // Providing data from dataProvider
         private readonly ICustomerDataProvider _customerDataProvider;
+        private Customer? _selectedCustomer;
+
         public CustomersViewModel(ICustomerDataProvider customerDataProvider)
         {
             _customerDataProvider = customerDataProvider;
@@ -22,7 +26,20 @@ namespace WiredBrainCoffee.CustomersApp.ViewModel
         public ObservableCollection<Customer> Customers { get; } = new();
 
         // ? can be null
-        public Customer? SelectedCustomer { get; set; }
+        public Customer? SelectedCustomer { 
+            get => _selectedCustomer; 
+            set
+            {
+                _selectedCustomer = value;
+                // RaisePropretyChanged(nameof(SelectedCustomer));
+                RaisePropretyChanged();
+            }
+        }
+            
+
+        // The only implementation needed for INotifyPropertyChanged
+        public event PropertyChangedEventHandler? PropertyChanged;
+
         public async Task LoadAsync()
         {
             // Check if there is already anyting in customers.
@@ -41,6 +58,23 @@ namespace WiredBrainCoffee.CustomersApp.ViewModel
             }
 
         }
+
+        // Adding customer 
+        internal void Add()
+        {
+            var customer = new Customer { FirstName = "New" };
+            Customers.Add(customer);
+            SelectedCustomer = customer;
+
+        }
+
+        // Simple method to raise event
+        private void RaisePropretyChanged([CallerMemberName]string? propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+
+        }
+
     }
 }
 
