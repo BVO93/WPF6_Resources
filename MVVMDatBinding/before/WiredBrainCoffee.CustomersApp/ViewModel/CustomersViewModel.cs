@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using WiredBrainCoffee.CustomersApp.Data;
@@ -11,11 +9,12 @@ using WiredBrainCoffee.CustomersApp.Model;
 
 namespace WiredBrainCoffee.CustomersApp.ViewModel
 {
-    public class CustomersViewModel : INotifyPropertyChanged
+
+    public class CustomersViewModel : ViewModelBase 
     {
         // Providing data from dataProvider
         private readonly ICustomerDataProvider _customerDataProvider;
-        private Customer? _selectedCustomer;
+        private CustomerItemViewModel? _selectedCustomer;
 
         public CustomersViewModel(ICustomerDataProvider customerDataProvider)
         {
@@ -23,10 +22,10 @@ namespace WiredBrainCoffee.CustomersApp.ViewModel
         }
 
         // Observes when the collection is changed and gets update
-        public ObservableCollection<Customer> Customers { get; } = new();
+        public ObservableCollection<CustomerItemViewModel> Customers { get; } = new();
 
         // ? can be null
-        public Customer? SelectedCustomer { 
+        public CustomerItemViewModel? SelectedCustomer { 
             get => _selectedCustomer; 
             set
             {
@@ -36,9 +35,6 @@ namespace WiredBrainCoffee.CustomersApp.ViewModel
             }
         }
             
-
-        // The only implementation needed for INotifyPropertyChanged
-        public event PropertyChangedEventHandler? PropertyChanged;
 
         public async Task LoadAsync()
         {
@@ -53,7 +49,7 @@ namespace WiredBrainCoffee.CustomersApp.ViewModel
             {
                 foreach (var customer in customers)
                 {
-                    Customers.Add(customer);
+                    Customers.Add(new CustomerItemViewModel(customer));
                 }
             }
 
@@ -63,17 +59,13 @@ namespace WiredBrainCoffee.CustomersApp.ViewModel
         internal void Add()
         {
             var customer = new Customer { FirstName = "New" };
-            Customers.Add(customer);
-            SelectedCustomer = customer;
+            var viewModel = new CustomerItemViewModel(customer);
+            Customers.Add(viewModel);
+            SelectedCustomer = viewModel;
 
         }
 
-        // Simple method to raise event
-        private void RaisePropretyChanged([CallerMemberName]string? propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-
-        }
+   
 
     }
 }
