@@ -10,11 +10,12 @@ using WiredBrainCoffee.CustomersApp.Model;
 namespace WiredBrainCoffee.CustomersApp.ViewModel
 {
 
-    public class CustomersViewModel : ViewModelBase 
+    public class CustomersViewModel : ViewModelBase
     {
         // Providing data from dataProvider
         private readonly ICustomerDataProvider _customerDataProvider;
         private CustomerItemViewModel? _selectedCustomer;
+        private NavigationSide _navigationSide;
 
         public CustomersViewModel(ICustomerDataProvider customerDataProvider)
         {
@@ -25,8 +26,9 @@ namespace WiredBrainCoffee.CustomersApp.ViewModel
         public ObservableCollection<CustomerItemViewModel> Customers { get; } = new();
 
         // ? can be null
-        public CustomerItemViewModel? SelectedCustomer { 
-            get => _selectedCustomer; 
+        public CustomerItemViewModel? SelectedCustomer
+        {
+            get => _selectedCustomer;
             set
             {
                 _selectedCustomer = value;
@@ -34,7 +36,18 @@ namespace WiredBrainCoffee.CustomersApp.ViewModel
                 RaisePropretyChanged();
             }
         }
-            
+
+        public NavigationSide navigationSide
+        {
+            get => _navigationSide;
+            private set
+            {
+                _navigationSide = value;
+                RaisePropretyChanged();
+            }
+        }
+
+ 
 
         public async Task LoadAsync()
         {
@@ -65,7 +78,26 @@ namespace WiredBrainCoffee.CustomersApp.ViewModel
 
         }
 
-   
+        internal void MoveNavigation()
+        {
+
+            if (_navigationSide == NavigationSide.Left)
+            {
+                navigationSide = NavigationSide.Right;
+            }
+            else
+            {
+                navigationSide = NavigationSide.Left;
+            }
+
+        }
+
+        public enum NavigationSide
+        {
+            Left, 
+            Right
+        }
+
 
     }
 }
