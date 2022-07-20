@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WiredBrainCoffee.CustomersApp.Command;
 using WiredBrainCoffee.CustomersApp.Data;
 using WiredBrainCoffee.CustomersApp.Model;
 
@@ -14,13 +15,20 @@ namespace WiredBrainCoffee.CustomersApp.ViewModel
     {
         // Providing data from dataProvider
         private readonly ICustomerDataProvider _customerDataProvider;
+
+      
+
         private CustomerItemViewModel? _selectedCustomer;
         private NavigationSide _navigationSide;
 
         public CustomersViewModel(ICustomerDataProvider customerDataProvider)
         {
             _customerDataProvider = customerDataProvider;
+            AddCommand = new DelegateCommand(Add);
+            MoveNavigationCommand = new DelegateCommand(MoveNavigation);
+            DeleteCommand = new DelegateCommand(Delete, CanDelete);
         }
+
 
         // Observes when the collection is changed and gets update
         public ObservableCollection<CustomerItemViewModel> Customers { get; } = new();
@@ -34,6 +42,7 @@ namespace WiredBrainCoffee.CustomersApp.ViewModel
                 _selectedCustomer = value;
                 // RaisePropretyChanged(nameof(SelectedCustomer));
                 RaisePropretyChanged();
+                DeleteCommand.RaiseCanExecuteChanged();
             }
         }
 
@@ -47,8 +56,11 @@ namespace WiredBrainCoffee.CustomersApp.ViewModel
             }
         }
 
- 
 
+        public DelegateCommand AddCommand { get; }
+        public DelegateCommand MoveNavigationCommand { get; }
+        public DelegateCommand DeleteCommand { get; }
+       
         public async Task LoadAsync()
         {
             // Check if there is already anyting in customers.
@@ -69,7 +81,7 @@ namespace WiredBrainCoffee.CustomersApp.ViewModel
         }
 
         // Adding customer 
-        internal void Add()
+        private void Add(object? parameter)
         {
             var customer = new Customer { FirstName = "New" };
             var viewModel = new CustomerItemViewModel(customer);
@@ -78,7 +90,7 @@ namespace WiredBrainCoffee.CustomersApp.ViewModel
 
         }
 
-        internal void MoveNavigation()
+        private void MoveNavigation(object? parameter)
         {
 
             if (_navigationSide == NavigationSide.Left)
@@ -91,6 +103,25 @@ namespace WiredBrainCoffee.CustomersApp.ViewModel
             }
 
         }
+
+
+
+        private void Delete(object? parameter)
+        {
+            if(SelectedCustomer is not null)
+            {
+                Customers.Remove(SelectedCustomer);
+                SelectedCustomer = null;
+            }
+        }
+
+
+        private bool CanDelete(object? parameter)
+        {
+            return SelectedCustomer is not null;
+        }
+
+
 
         public enum NavigationSide
         {
