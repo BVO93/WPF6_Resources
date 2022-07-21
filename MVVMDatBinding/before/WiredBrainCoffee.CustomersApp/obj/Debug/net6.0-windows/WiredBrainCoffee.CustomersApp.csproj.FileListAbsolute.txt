@@ -24,3 +24,6 @@ C:\1_Programming\1_C#\1_ExampleResources\4_WPF6Examples\WPF6_GIT\MVVMDatBinding\
 C:\1_Programming\1_C#\1_ExampleResources\4_WPF6Examples\WPF6_GIT\MVVMDatBinding\before\WiredBrainCoffee.CustomersApp\obj\Debug\net6.0-windows\WiredBrainCoffee.CustomersApp.pdb
 C:\1_Programming\1_C#\1_ExampleResources\4_WPF6Examples\WPF6_GIT\MVVMDatBinding\before\WiredBrainCoffee.CustomersApp\obj\Debug\net6.0-windows\WiredBrainCoffee.CustomersApp.genruntimeconfig.cache
 C:\1_Programming\1_C#\1_ExampleResources\4_WPF6Examples\WPF6_GIT\MVVMDatBinding\before\WiredBrainCoffee.CustomersApp\obj\Debug\net6.0-windows\ref\WiredBrainCoffee.CustomersApp.dll
+C:\1_Programming\1_C#\1_ExampleResources\4_WPF6Examples\WPF6_GIT\MVVMDatBinding\before\WiredBrainCoffee.CustomersApp\obj\Debug\net6.0-windows\App.baml
+C:\1_Programming\1_C#\1_ExampleResources\4_WPF6Examples\WPF6_GIT\MVVMDatBinding\before\WiredBrainCoffee.CustomersApp\obj\Debug\net6.0-windows\Resources\Brushes.baml
+C:\1_Programming\1_C#\1_ExampleResources\4_WPF6Examples\WPF6_GIT\MVVMDatBinding\before\WiredBrainCoffee.CustomersApp\obj\Debug\net6.0-windows\Resources\Converters.baml

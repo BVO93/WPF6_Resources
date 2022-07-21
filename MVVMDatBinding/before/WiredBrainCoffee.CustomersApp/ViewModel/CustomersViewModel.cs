@@ -42,9 +42,15 @@ namespace WiredBrainCoffee.CustomersApp.ViewModel
                 _selectedCustomer = value;
                 // RaisePropretyChanged(nameof(SelectedCustomer));
                 RaisePropretyChanged();
+
+                RaisePropretyChanged(nameof(IsCustomerSelected));
                 DeleteCommand.RaiseCanExecuteChanged();
             }
         }
+
+        // We want to check if there is a cusomter selected. If not we want details like name to be invisible. 
+        // We check if customer is selected. Ans also raise the raisepropertyChanged event when a custoemr gets selected or deselected.
+        public bool IsCustomerSelected => SelectedCustomer is not null;
 
         public NavigationSide navigationSide
         {
