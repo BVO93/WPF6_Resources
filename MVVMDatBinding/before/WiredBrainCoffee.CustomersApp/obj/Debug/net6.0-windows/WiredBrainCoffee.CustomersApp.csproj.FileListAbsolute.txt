@@ -27,3 +27,5 @@ C:\1_Programming\1_C#\1_ExampleResources\4_WPF6Examples\WPF6_GIT\MVVMDatBinding\
 C:\1_Programming\1_C#\1_ExampleResources\4_WPF6Examples\WPF6_GIT\MVVMDatBinding\before\WiredBrainCoffee.CustomersApp\obj\Debug\net6.0-windows\App.baml
 C:\1_Programming\1_C#\1_ExampleResources\4_WPF6Examples\WPF6_GIT\MVVMDatBinding\before\WiredBrainCoffee.CustomersApp\obj\Debug\net6.0-windows\Resources\Brushes.baml
 C:\1_Programming\1_C#\1_ExampleResources\4_WPF6Examples\WPF6_GIT\MVVMDatBinding\before\WiredBrainCoffee.CustomersApp\obj\Debug\net6.0-windows\Resources\Converters.baml
+C:\1_Programming\1_C#\1_ExampleResources\4_WPF6Examples\WPF6_GIT\MVVMDatBinding\before\WiredBrainCoffee.CustomersApp\obj\Debug\net6.0-windows\View\ProductsView.g.cs
+C:\1_Programming\1_C#\1_ExampleResources\4_WPF6Examples\WPF6_GIT\MVVMDatBinding\before\WiredBrainCoffee.CustomersApp\obj\Debug\net6.0-windows\View\ProductsView.baml

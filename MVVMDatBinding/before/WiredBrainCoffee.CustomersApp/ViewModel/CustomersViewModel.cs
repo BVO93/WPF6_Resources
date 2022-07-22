@@ -67,7 +67,7 @@ namespace WiredBrainCoffee.CustomersApp.ViewModel
         public DelegateCommand MoveNavigationCommand { get; }
         public DelegateCommand DeleteCommand { get; }
        
-        public async Task LoadAsync()
+        public async override Task LoadAsync()
         {
             // Check if there is already anyting in customers.
             if (Customers.Any())
