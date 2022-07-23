@@ -53,6 +53,7 @@
 
         <!-- Customer detail  We get selectedCustomer . First name because our data context is set like that -->
         <StackPanel Grid.Column="1" Margin="10" Visibility="{Binding IsCustomerSelected, Converter={StaticResource BoolenToVisibilityConv}}">
+        
             <Label>Firstname:</Label>
             <TextBox Text="{Binding SelectedCustomer.FirstName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
             <Label>Lastname:</Label>

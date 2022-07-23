@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\1_Programming\1_C#\1_ExampleResources\4_WPF6Examples\WPF6_GIT\MVVMDatBinding\before\WiredBrainCoffee.CustomersApp\App.xaml
-62049240828
+72067005704
 
 19-496098105
 196-667632069
-Controls\HeaderControl.xaml;MainWindow.xaml;Resources\Brushes.xaml;Resources\Converters.xaml;View\CustomersView.xaml;View\ProductsView.xaml;
+Controls\HeaderControl.xaml;MainWindow.xaml;Resources\Brushes.xaml;Resources\Converters.xaml;Resources\Styles.xaml;View\CustomersView.xaml;View\ProductsView.xaml;
 
-False
+True
 
