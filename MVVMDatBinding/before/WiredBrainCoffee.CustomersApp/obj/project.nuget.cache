@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "fKV5UqIy2SPMgx6IFhhSkmpJLBkjXUfap0CF/jTV/JF2U2AYHj0Y2XExFjHvJgLujNIBtK7zRn5IxxbcIJiJlQ==",
+  "dgSpecHash": "Fe1f3GKSLWLmyk23QAJB7fhA0Z16udezzBhyDn9gVP5p1p9ypjfRBlQrD24RPLnCX+pcl/NihFvEhJ/VeeuQrg==",
   "success": true,
   "projectFilePath": "C:\\1_Programming\\1_C#\\1_ExampleResources\\4_WPF6Examples\\WPF6_GIT\\MVVMDatBinding\\before\\WiredBrainCoffee.CustomersApp\\WiredBrainCoffee.CustomersApp.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\VBJ1BOX\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\6.0.0\\microsoft.extensions.dependencyinjection.6.0.0.nupkg.sha512",
+    "C:\\Users\\VBJ1BOX\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\VBJ1BOX\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+  ],
   "logs": []
 }
