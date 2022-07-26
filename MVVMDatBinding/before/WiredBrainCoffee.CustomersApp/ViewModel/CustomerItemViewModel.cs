@@ -11,7 +11,7 @@ namespace WiredBrainCoffee.CustomersApp.ViewModel
     // Problem is that if we change something in Customer (model) this is not notified to the view. 
     // We could make a direct link using InotifyPropertyChanged , but this would architecture wise not be the best. 
     // Therefore we choose to make a viewModel
-    public class CustomerItemViewModel : ViewModelBase
+    public class CustomerItemViewModel : ValidationViewModelBase
     {
 
         private readonly Customer _model;
@@ -31,6 +31,14 @@ namespace WiredBrainCoffee.CustomersApp.ViewModel
             set 
             { _model.FirstName = value;
                 RaisePropretyChanged();
+                if(string.IsNullOrEmpty(_model.FirstName))
+                {
+                    AddError("Firstname is required", nameof(FirstName));
+                }
+                else
+                {
+                    ClearErrors(nameof(FirstName));
+                }
             }
         }
 
